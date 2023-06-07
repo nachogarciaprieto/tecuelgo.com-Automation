@@ -20,7 +20,7 @@ public class DemosQaSteps {
 
     // PROYECTO TECUELGO.COM
 
-    @Given("^that (Nacho|Administrator|Vendor|User) wants to login in the system$")
+    @Given("^that (Nacho|Administrator|Vendor|Client) wants to login in the system$")
     public void thatNachoWantsToLoginInTheSystem(String actorName) { theActorCalled(actorName);
 
     }
@@ -43,9 +43,9 @@ public class DemosQaSteps {
             loginRolesDto = LoginRolesDataBuilder.build(LoginRolesDataTypes.VENDOR);
         }
 
-        if(loginRolesDataTypes.equals(LoginRolesDataTypes.USER)){
+        if(loginRolesDataTypes.equals(LoginRolesDataTypes.CLIENT)){
 
-            loginRolesDto = LoginRolesDataBuilder.build(LoginRolesDataTypes.USER);
+            loginRolesDto = LoginRolesDataBuilder.build(LoginRolesDataTypes.CLIENT);
         }
 
 
@@ -80,13 +80,12 @@ public class DemosQaSteps {
         );
     }
 
-    @Then("the user menu is opened")
-    public void theUserMenuIsOpened() {
+    @Then("the client menu is opened")
+    public void theClientMenuIsOpened() {
         theActorInTheSpotlight().should(
                 seeThat(
                         "The user profile button is displayed",
-                        LoginVendorQuestion.isVendorLogged(),
-                        //LoginTextSuccessfullyQuestion.isLogged(),
+                        LoginClientQuestion.isClientLogged(),
                         Matchers.equalTo(true)
                 )
         );

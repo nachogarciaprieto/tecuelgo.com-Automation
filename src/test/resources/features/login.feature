@@ -29,6 +29,6 @@ Feature: Login in the system
     # Make that the test wants
     When he fills the login form with CLIENT rol
     # Check the expected results
-    Then the user menu is opened
+    Then the client menu is opened
 
 
