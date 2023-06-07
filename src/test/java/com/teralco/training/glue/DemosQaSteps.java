@@ -3,15 +3,10 @@ package com.teralco.training.glue;
 import com.teralco.training.model.*;
 import com.teralco.training.questions.*;
 import com.teralco.training.tasks.*;
-import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.hamcrest.Matchers;
-
-import java.util.List;
-import java.util.Map;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -25,7 +20,7 @@ public class DemosQaSteps {
 
     // PROYECTO TECUELGO.COM
 
-    @Given("^that (Nacho|Administrator|Jeff Group|Installation|Investigator) wants to login in the system$")
+    @Given("^that (Nacho|Administrator|Vendor|User) wants to login in the system$")
     public void thatNachoWantsToLoginInTheSystem(String actorName) { theActorCalled(actorName);
 
     }
@@ -48,9 +43,9 @@ public class DemosQaSteps {
             loginRolesDto = LoginRolesDataBuilder.build(LoginRolesDataTypes.VENDOR);
         }
 
-        if(loginRolesDataTypes.equals(LoginRolesDataTypes.CLIENT)){
+        if(loginRolesDataTypes.equals(LoginRolesDataTypes.USER)){
 
-            loginRolesDto = LoginRolesDataBuilder.build(LoginRolesDataTypes.CLIENT);
+            loginRolesDto = LoginRolesDataBuilder.build(LoginRolesDataTypes.USER);
         }
 
 
@@ -79,7 +74,7 @@ public class DemosQaSteps {
         theActorInTheSpotlight().should(
                 seeThat(
                         "The user manage button is displayed",
-                        LoginTextSuccessfullyQuestion.isLogged(),
+                        LoginVendorQuestion.isVendorLogged(),
                         Matchers.equalTo(true)
                 )
         );
@@ -90,7 +85,7 @@ public class DemosQaSteps {
         theActorInTheSpotlight().should(
                 seeThat(
                         "The user profile button is displayed",
-                        LoginAdministratorQuestion.isAdminLogged(),
+                        LoginVendorQuestion.isVendorLogged(),
                         //LoginTextSuccessfullyQuestion.isLogged(),
                         Matchers.equalTo(true)
                 )

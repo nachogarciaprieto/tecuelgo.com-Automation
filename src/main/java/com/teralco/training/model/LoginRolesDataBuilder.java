@@ -15,10 +15,10 @@ public class LoginRolesDataBuilder {
                 break;
 
             case VENDOR:
-                loginRolesDto = new LoginRolesDto("vendedor@tecuelgo.com", "5678php");
+                loginRolesDto = new LoginRolesDto("vendor@tecuelgo.com", "5678php");
                 break;
 
-            case CLIENT:
+            case USER:
                 loginRolesDto = new LoginRolesDto("cliente@tecuelgo.com", "9012php");
                 break;
 

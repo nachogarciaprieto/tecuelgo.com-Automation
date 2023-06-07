@@ -22,7 +22,7 @@ public class LogoutAction implements Interaction {
     public <T extends Actor> void performAs(T actor) {
 
 
-        //actor.attemptsTo(WaitUntil.the(RegisterSectionPage.USERFORM_FIELD, isCurrentlyVisible()).forNoMoreThan(10).seconds());
+        actor.attemptsTo(WaitUntil.the(AdministratorMenuSectionPage.CLOSE_SESSION_BTN, isClickable()).forNoMoreThan(10).seconds());
 
         //actor.attemptsTo(Enter.theValue(loginRolesDto.getUsername()).into(LoginSectionPage.USERNAME_FIELD));
         //actor.attemptsTo(Enter.theValue(loginRolesDto.getPassword()).into(LoginSectionPage.PASSWORD_FIELD));
